@@ -7,9 +7,9 @@ class CouponModel extends Coupon
   	// DB接続
   	try {
 		$couponList=CouponModel::model()->findAll();
-  	    return $couponList;
-  	} catch (PDOException $e) {
+  	} catch (CDbException $e) {
   		exit('データベース接続失敗。'.$e->getMessage());
   	}
+  	return $couponList;
   }
 }

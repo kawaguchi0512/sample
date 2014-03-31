@@ -8,16 +8,13 @@
             <th scope="col">クーポン名</th>
         </tr>
         <?php
-        $i = 0;
-        while ($i<count($ret)) {
-		$row = $ret[$i];
+        foreach ($ret as $row) {
         ?>
         <tr>
             <td><?php print(htmlspecialchars($row['id'])); ?></td>
             <td><?php print(htmlspecialchars($row['name'])); ?></td>
         </tr>
         <?php
-        $i++;
-        }
+		}
         ?>
     </table>
