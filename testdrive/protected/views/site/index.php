@@ -1,20 +1,22 @@
-<?php
-/* @var $this SiteController */
+<title>クーポン一覧画面</title>
 
-$this->pageTitle=Yii::app()->name;
-?>
-
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-
-<p>Congratulations! You have successfully created your Yii application.</p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+    <h>クーポン一覧</h>
+    <br>
+    <table width='75%' border='1'>
+        <tr>
+            <th scope="col">クーポンID</th>
+            <th scope="col">クーポン名</th>
+        </tr>
+        <?php
+        $i = 0;
+        while ($row = $ret->fetch(PDO::FETCH_ASSOC)) {
+        ?>
+        <tr>
+            <td><?php print(htmlspecialchars($row['id'])); ?></td>
+            <td><?php print(htmlspecialchars($row['name'])); ?></td>
+        </tr>
+        <?php
+        $i++;
+        }
+        ?>
+    </table>
