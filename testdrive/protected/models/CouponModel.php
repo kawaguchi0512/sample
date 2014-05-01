@@ -2,14 +2,15 @@
 class CouponModel extends Coupon
 {
   // クーポンリスト取得
-  public function selectCoupon()
-  {
-  	// DB接続
-  	try {
-		$couponList=CouponModel::model()->findAll();
-  	} catch (CDbException $e) {
-  		exit('データベース接続失敗。'.$e->getMessage());
-  	}
+  public function selectCoupon(){
+    $couponList=CouponModel::model()->findAll();
   	return $couponList;
+  }
+
+  // クーポンIDをキーにクーポン情報を取得
+  public function select($id){
+  	$coupon = CouponModel::model()
+  	    ->findByPk($id);
+  	return $coupon;
   }
 }

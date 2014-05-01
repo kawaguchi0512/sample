@@ -11,7 +11,7 @@
         foreach ($ret as $row) {
         ?>
         <tr>
-            <td><?php print(htmlspecialchars($row['id'])); ?></td>
+            <td><?php print CHtml::link(htmlspecialchars($row['id']), array('detail/index', 'id' => $row['id'])); ?></td>
             <td><?php print(htmlspecialchars($row['name'])); ?></td>
         </tr>
         <?php
